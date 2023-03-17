@@ -24,8 +24,22 @@ public class CarService {
             if (car != null && car.isAvailable() && car.isElectric()) {
                 System.out.println(car);
             } else if (car == null) {
+                System.out.println("There are no available electric cars ❌");
                 break;
             }
         }
+    }
+
+    public static Car validateCarByRegNumber(String regNumber) {
+        Car[] cars = CarDAO.getCars();
+        for (Car car : cars) {
+            if (car == null) {
+                System.out.println("There are i no car with that reg number ❌");
+                return null;
+            } else if (car.getRegNumber().equals(regNumber)) {
+                return car;
+            }
+        }
+        return null;
     }
 }

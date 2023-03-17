@@ -16,4 +16,21 @@ public class UserService {
             }
         }
     }
+
+    public static User[] getUsers() {
+        return UserDAO.getUsers();
+    }
+
+    public static User validateUserById(String userId) {
+        User[] users = UserDAO.getUsers();
+        for (User user : users) {
+            if (user == null) {
+                System.out.println("No such user ❌");
+                return null;
+            } else if (user.getId().toString().equals(userId)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }

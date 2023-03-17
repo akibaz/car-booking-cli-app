@@ -39,6 +39,9 @@ public class Main {
 
             userInput = validateUserInput(scanner);
 
+            if (userInput == 1) {
+                BookingService.bookCar();
+            }
             if (userInput == 3) {
                 BookingService.printBookings();
             } else if (userInput == 4) {
