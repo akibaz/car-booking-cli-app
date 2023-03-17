@@ -8,10 +8,42 @@ public class CarService {
     }
 
     public static Car[] getAvailableCars() {
-        return CarDAO.getAvailableCars();
+        Car[] cars = CarDAO.getCars();
+        int counter = 0;
+        for (Car car : cars) {
+            if (car != null && car.isAvailable()) {
+                counter++;
+            } else {
+                break;
+            }
+        }
+        Car[] availableCars = new Car[counter];
+        int index = 0;
+        for (Car car : cars) {
+            if (car != null && car.isAvailable()) {
+                availableCars[index++] = car;
+            }
+        }
+        return availableCars;
     }
 
     public static Car[] getAvailableElectricCars() {
-        return CarDAO.getAvailableElectricCars();
+        Car[] cars = CarDAO.getCars();
+        int counter = 0;
+        for (Car car : cars) {
+            if (car != null && car.isAvailable() && car.isElectric()) {
+                counter++;
+            } else {
+                break;
+            }
+        }
+        Car[] availableElectricCars = new Car[counter];
+        int index = 0;
+        for (Car car : cars) {
+            if (car != null && car.isAvailable() && car.isElectric()) {
+                availableElectricCars[index++] = car;
+            }
+        }
+        return availableElectricCars;
     }
 }

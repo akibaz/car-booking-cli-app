@@ -13,6 +13,10 @@ class CarDAO {
         cars[nextAvailableIndex++] = car;
     }
 
+    public static Car[] getCars() {
+        return cars;
+    }
+
     public static Car[] getAvailableCars() {
         Car[] availableCars = new Car[nextAvailableIndex];
         int index = 0;
