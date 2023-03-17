@@ -40,9 +40,9 @@ public class Main {
 
             if (userInput == 4) {
                 printAvailableCars();
-            }
-
-            if (userInput == 6) {
+            } else if (userInput == 5) {
+                printAvailableElectricCars();
+            } else if (userInput == 6) {
                 printUsers();
             }
         } while (userInput != 7);
@@ -65,6 +65,13 @@ public class Main {
 
     private static void printAvailableCars() {
         Car[] cars = CarService.getAvailableCars();
+        for (Car car : cars) {
+            System.out.println(car);
+        }
+    }
+
+    private static void printAvailableElectricCars() {
+        Car[] cars = CarService.getAvailableElectricCars();
         for (Car car : cars) {
             System.out.println(car);
         }
