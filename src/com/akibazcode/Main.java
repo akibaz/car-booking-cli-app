@@ -1,5 +1,6 @@
 package com.akibazcode;
 
+import com.akibazcode.booking.BookingService;
 import com.akibazcode.car.Car;
 import com.akibazcode.car.CarBrand;
 import com.akibazcode.car.CarService;
@@ -37,6 +38,10 @@ public class Main {
             );
 
             userInput = validateUserInput(scanner);
+
+            if (userInput == 3) {
+                BookingService.printBookings();
+            }
 
             if (userInput == 4) {
                 printAvailableCars();
