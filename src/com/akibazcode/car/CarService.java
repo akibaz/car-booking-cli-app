@@ -7,43 +7,25 @@ public class CarService {
         CarDAO.addCar(car);
     }
 
-    public static Car[] getAvailableCars() {
+    public static void printAvailableCars() {
         Car[] cars = CarDAO.getCars();
-        int counter = 0;
         for (Car car : cars) {
             if (car != null && car.isAvailable()) {
-                counter++;
-            } else {
+                System.out.println(car);
+            } else if (car == null) {
                 break;
             }
         }
-        Car[] availableCars = new Car[counter];
-        int index = 0;
-        for (Car car : cars) {
-            if (car != null && car.isAvailable()) {
-                availableCars[index++] = car;
-            }
-        }
-        return availableCars;
     }
 
-    public static Car[] getAvailableElectricCars() {
+    public static void printAvailableElectricCars() {
         Car[] cars = CarDAO.getCars();
-        int counter = 0;
         for (Car car : cars) {
             if (car != null && car.isAvailable() && car.isElectric()) {
-                counter++;
-            } else {
+                System.out.println(car);
+            } else if (car == null) {
                 break;
             }
         }
-        Car[] availableElectricCars = new Car[counter];
-        int index = 0;
-        for (Car car : cars) {
-            if (car != null && car.isAvailable() && car.isElectric()) {
-                availableElectricCars[index++] = car;
-            }
-        }
-        return availableElectricCars;
     }
 }

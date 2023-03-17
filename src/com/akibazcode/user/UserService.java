@@ -6,7 +6,14 @@ public class UserService {
         User user = new User(name);
         UserDAO.addUser(user);
     }
-    public static User[] getUsers() {
-        return UserDAO.getUsers();
+    public static void printUsers() {
+        User[] users = UserDAO.getUsers();
+        for (User user : users) {
+            if (user == null) {
+                break;
+            } else {
+                System.out.println(user);
+            }
+        }
     }
 }
