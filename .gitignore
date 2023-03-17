@@ -2,4 +2,6 @@ out/
 .idea/
 src/com/akibazcode/user/UserDAOTest.java
 src/com/akibazcode/user/UserTest.java
+src/com/akibazcode/car/CarTest.java
+src/com/akibazcode/car/CarDAOTest.java
 CarBookingCLIApp.iml

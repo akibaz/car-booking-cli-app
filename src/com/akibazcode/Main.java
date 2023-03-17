@@ -1,9 +1,11 @@
 package com.akibazcode;
 
+import com.akibazcode.car.Car;
+import com.akibazcode.car.CarBrand;
+import com.akibazcode.car.CarService;
 import com.akibazcode.user.User;
 import com.akibazcode.user.UserService;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -11,10 +13,15 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int userInput ;
-        User baki = new User("Baki");
-        User maki = new User("Maki");
-        UserService.insertUser(baki);
-        UserService.insertUser(maki);
+
+        //Add users to record
+        UserService.addUser("Baki");
+        UserService.addUser("Maki");
+
+        // Add cars to record
+        CarService.addCar("1234", 89.00, CarBrand.TESLA, true);
+        CarService.addCar("5678", 50.00, CarBrand.AUDI, false);
+        CarService.addCar("5678", 77.00, CarBrand.MERCEDES, false);
         do {
             System.out.println(
             """
@@ -30,6 +37,10 @@ public class Main {
             );
 
             userInput = validateUserInput(scanner);
+
+            if (userInput == 4) {
+                printAvailableCars();
+            }
 
             if (userInput == 6) {
                 printUsers();
@@ -50,6 +61,13 @@ public class Main {
             scanner.next();
         }
         return userInput;
+    }
+
+    private static void printAvailableCars() {
+        Car[] cars = CarService.getAvailableCars();
+        for (Car car : cars) {
+            System.out.println(car);
+        }
     }
 
     private static void printUsers() {
