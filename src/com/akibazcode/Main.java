@@ -1,10 +1,8 @@
 package com.akibazcode;
 
 import com.akibazcode.booking.BookingService;
-import com.akibazcode.car.Car;
 import com.akibazcode.car.CarBrand;
 import com.akibazcode.car.CarService;
-import com.akibazcode.user.User;
 import com.akibazcode.user.UserService;
 
 import java.util.InputMismatchException;
