@@ -22,7 +22,7 @@ public class Main {
         // Add cars to record
         CarService.addCar("1234", 89.00, CarBrand.TESLA, true);
         CarService.addCar("5678", 50.00, CarBrand.AUDI, false);
-        CarService.addCar("5678", 77.00, CarBrand.MERCEDES, false);
+        CarService.addCar("9101", 77.00, CarBrand.MERCEDES, false);
         do {
             System.out.println(
             """
@@ -41,6 +41,8 @@ public class Main {
 
             if (userInput == 1) {
                 BookingService.bookCar();
+            } else if (userInput == 2) {
+                BookingService.viewBookedCarsByUserId();
             }
             if (userInput == 3) {
                 BookingService.printBookings();
